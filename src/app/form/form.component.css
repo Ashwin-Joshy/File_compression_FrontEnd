@@ -1,0 +1,28 @@
+.form-outline{
+    margin: 20px;
+    
+}
+h1{
+  text-align: center;
+  color: #fff;
+}
+ .main{
+    height: 100vh;
+    width: 100%;
+    outline: 5px;
+    background: linear-gradient(135deg, #ffc827 0%, #ff2727dd);
+ }
+  .q{
+    padding-top: 150px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .btn{
+    margin-left: 680px;
+    /* background: linear-gradient(135deg, #ffc827 0%, #ff2727dd); */
+  }
+
+  .form-outline1{
+    padding-left: 450px;
+  }
