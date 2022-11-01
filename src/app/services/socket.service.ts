@@ -4,6 +4,9 @@ import { io,Socket } from 'socket.io-client';
 //import * as io from 'socket.io-client';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+//import * as archive from "./fileController"
+
+declare var fileController:any
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +15,15 @@ export class SocketService {
   private socket!: Socket
   constructor() {  
      this.socket = io(environment.socketUrl);
+     //console.log('status',fileController.status);
+     
   }
-  sendMessage(msg: string,data:any) {
+  async sendMessage(msg: string,data:any) {
     console.log(this.socket);
     this.socket.emit('start', data);
     console.log('send');
+   // console.log(await archive.archiveFile(1,1,1,1,1,1));
+    
   }
   getMessage() {
     // return this.socket.fromEvent('chat').pipe(

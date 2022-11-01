@@ -1,45 +1,47 @@
 <div class="main">
     <div class="q">
         <form [formGroup]="submitForm" (ngSubmit)="submit()"  >
-            <div class="row mb-4">
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" formControlName="from" id="from" name="from" class="form-control" />
-                  <label class="form-label" for="form3Example1">From</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" formControlName="to" id="form3Example2" name="to" class="form-control" />
-                  <label class="form-label" for="form3Example2">To</label>
-                </div>
-              </div>
+            <div class="row" >
+              <h4>Please Enter The Details Below</h4>
             </div>
-          
-        
-            <div class="form-outline1 mb-4">
-                <input type="text" id="zipname" formControlName="zipname" name="zipname" class="form-control" style="width: 600px;"/>
-                <label class="form-label" for="zipname">Zip Name</label>
+              <div class="row">
+                <div class="form-outline">
+                  <input type="text" formControlName="from" id="from" placeholder="Please enter the fromPath ( if multi use ',' ) *" name="from" class="form-control" />
+                  
+                </div>
               </div>
-          
+              <div class="row">
+                <div class="form-outline">
+                  <input type="text" formControlName="to" id="form3Example2" placeholder="Please enter the fromPath ( if multi use ',' ) *" name="to" class="form-control" />
+                  
+                </div>
+              </div>
             
-            <div class="row mb-4">
-                <div class="col">
-                  <div class="form-outline">
-                      <input type="date" id="fromdate" formControlName="fromdate" name="fromdate" class="form-control" />
-                      <label class="form-label" for="fromdate">From date</label>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-outline">
-                      <input type="date" id="todate" formControlName="todate" name="todate" class="form-control" />
-                      <label class="form-label" for="todate">To date</label>
-                  </div>
+          
+           
+            <div class="row">
+              <div class="form-outline">
+                <input type="text" id="zipname" formControlName="zipname" placeholder="Zipname *" name="zipname" class="form-control" />
+                
+            </div>
+            </div>
+            <div class="row">
+              <div class="form-outline">
+                <input type="text" onfocus="(this.type='date')"  onmouseleave="(this.type='text')" onmouseenter="(this.type='date')"  formControlName="fromdate" placeholder="FromDate *" name="fromdate" class="form-control" />
+                
+            </div>
+            </div>
+            <div class="row">
+              <div class="form-outline ">
+                <input type="text" onfocus="(this.type='date')"  onmouseleave="(this.type='text')" onmouseenter="(this.type='date')" formControlName="todate" name="todate" placeholder="ToDate *" class="form-control" />
+                
                 </div>
               </div>
-            <button type="submit"  class="btn btn-primary btn-block mb-4">Submit</button>
+            <div class="row" >
+              <button type="submit"  class="btn btn-primary btn-block ">Submit</button>
+            </div>
           <br>
-          <h1>{{movies}}</h1>
+          <h6>{{movies}}</h6>
          
             
         </form>
