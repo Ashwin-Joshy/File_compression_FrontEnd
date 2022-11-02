@@ -32,6 +32,6 @@
 </pre>
 <h3>Bonus</h3>
 <p>
-    I am currenty working to make the entire server starting on front end and back end, also the opening of browser on local host easier
+    I am currenty working to make the entire server start on front end and back end, also the opening of browser on local host easier
     by making all this execute with a single click. I'll be adding the feature in github repository at a later period of time. 
 </p>
