@@ -1,8 +1,8 @@
 <h1>File Compression FrontEnd</h1>
 <h3>Function</h3>
 <p>
-  This project is a frontend for the file compression program Interface allows
-  user to type in folder/folders path , Name of file to be created, the fromDate
+  This repository act as frontend for the file compression program.
+  Interface allows user to type in folder/folders path , Name of file to be created, the fromDate
   and toDate which then compresses the files in given folder/folders with given 
   name between the given time interval.
 </p>
