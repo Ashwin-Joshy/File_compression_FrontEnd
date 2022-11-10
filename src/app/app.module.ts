@@ -9,6 +9,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocketService } from './services/socket.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PopupComponent } from './popup/popup.component';
 
 const config: SocketIoConfig = {
   url: environment.socketUrl, // socket server url;
@@ -17,7 +19,7 @@ const config: SocketIoConfig = {
   },
 };
 @NgModule({
-  declarations: [AppComponent, FormComponent],
+  declarations: [AppComponent, FormComponent, PopupComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +27,7 @@ const config: SocketIoConfig = {
     SocketIoModule.forRoot(config),
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,47 +1,87 @@
 <div class="main">
     <div class="q">
-        <form [formGroup]="submitForm" (ngSubmit)="submit()"  >
+        <form [formGroup]="submitForm"  >
             <div class="row" >
-              <h4>Please Enter The Details Below</h4>
+              <h6 class="header">Please Enter The Details Below</h6>
             </div>
+            <!-- fromPath -->
               <div class="row">
-                <div class="form-outline">
-                  <input type="text" formControlName="from" id="from" placeholder="Please enter the fromPath ( if multi use ',' ) *" name="from" class="form-control" />
-                  
+                    <div class="form-outline">
+                      <fa-icon class="view-all" data-toggle="tooltip" data-placement="top" title="View"  (click)="changeTooltip('from')" [icon]="faEye"></fa-icon>
+                      <input  #from type="text" (keyup.enter)="addToArray('from',from)"  formControlName="from" id="from" placeholder="Please enter the fromPath ( if multi use ',' ) *" name="from" class="form-control mainInput" />
+                      <b class="add" (click)="addToArray('from',from)" data-toggle="tooltip" data-placement="top" title="Add entered path to list" >ADD</b>
+                    </div>
+                   
+                <div *ngIf="fromTooltop" class="tooltp">
+                  <div *ngIf="fromPath.length==0" >
+                    <b>No path added</b>
+                  </div>
+                  <div *ngFor="let from of fromPath ; let i=index" >
+                      <div class="cont"  *ngIf="edit[0]==i && edit[1]==true && edit[2]=='from'; else showNormal; ">
+                        <input #edit class="edit1 inner-cont inner"  value="{{from}} "  >&nbsp;
+                        <fa-icon (click)="applyToArray('from',i,edit.value)" data-toggle="tooltip" data-placement="top" title="Apply"  class=" tick" [icon]="faCheck" size="lg"></fa-icon>&nbsp;
+                        <fa-icon (click)="applyToArray('from',i,'')" data-toggle="tooltip" data-placement="top" title="Cancel"  class=" cross" [icon]="faCross" size="lg"></fa-icon>  
+                      </div>
+                      <ng-template #showNormal>
+                        <div class="cont" ><div class="inner-cont" #list data-toggle="tooltip" data-placement="top" title="{{list.innerHTML}}" >{{i+1}}. {{from}}</div>
+                          <fa-icon  (click)="editFromArray('from',i)" data-toggle="tooltip" data-placement="top" title="Edit" class="edit" [icon]="faEdit"></fa-icon> &nbsp;
+                          <fa-icon  (click)="deleteFromArray('from',i)" data-toggle="tooltip" data-placement="top" title="Delete" class="delete" [icon]="faTrash"></fa-icon>
+                          
+                        </div>
+                     </ng-template>
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="form-outline">
-                  <input type="text" formControlName="to" id="form3Example2" placeholder="Please enter the toPath ( if multi use ',' ) *" name="to" class="form-control" />
-                  
-                </div>
-              </div>
-            
-          
-           
+            <!-- toPath -->
             <div class="row">
               <div class="form-outline">
-                <input type="text" id="zipname" formControlName="zipname" placeholder="Zipname *" name="zipname" class="form-control" />
-                
+                <fa-icon class="view-all" data-toggle="tooltip" data-placement="top" title="View"  (click)="changeTooltip('to')" [icon]="faEye"></fa-icon>
+                <input  #to type="text" (keyup.enter)="addToArray('to',to)"  formControlName="to" id="to" placeholder="Please enter the toPath ( if multi use ',' ) *" name="to" class="form-control mainInput" />
+                <b class="add" (click)="addToArray('to',to)" data-toggle="tooltip" data-placement="top" title="Add entered path to list" >ADD</b>
+              </div>
+             
+          <div *ngIf="toToolTop" class="tooltp">
+            <div *ngIf="toPath.length==0" >
+              <b>No path added</b>
             </div>
+            <div *ngFor="let to of toPath ; let i=index" >
+                <div class="cont"  *ngIf="edit[0]==i && edit[1]==true && edit[2]=='to'; else showNormal; ">
+                  <input #edit class="edit1 inner-cont inner"  value="{{to}} "  >&nbsp;
+                  <fa-icon (click)="applyToArray('to',i,edit.value)" data-toggle="tooltip" data-placement="top" title="Apply"  class=" tick" [icon]="faCheck" size="lg"></fa-icon>&nbsp;
+                  <fa-icon (click)="applyToArray('to',i,'')" data-toggle="tooltip" data-placement="top" title="Cancel"  class=" cross" [icon]="faCross" size="lg"></fa-icon>  
+                </div>
+                <ng-template #showNormal>
+                  <div class="cont" ><div class="inner-cont" >{{i+1}}. {{to}}</div>
+                    <fa-icon  (click)="editFromArray('to',i)" data-toggle="tooltip" data-placement="top" title="Edit" class="edit" [icon]="faEdit"></fa-icon> &nbsp;
+                    <fa-icon  (click)="deleteFromArray('to',i)" data-toggle="tooltip" data-placement="top" title="Delete" class="delete" [icon]="faTrash"></fa-icon>
+                    
+                  </div>
+               </ng-template>
             </div>
+          </div>
+             </div>
+             <!-- zipName -->
             <div class="row">
               <div class="form-outline">
-                <input type="text" onfocus="(this.type='date')"  onmouseleave="(this.type='text')" onmouseenter="(this.type='date')"  formControlName="fromdate" placeholder="FromDate *" name="fromdate" class="form-control" />
+                <input type="text" id="zipname" formControlName="zipname" placeholder="Zipname *" name="zipname" class="form-control mainInput" />
                 
             </div>
             </div>
+            <!-- Dates -->
             <div class="row">
-              <div class="form-outline ">
-                <input type="text" onfocus="(this.type='date')"  onmouseleave="(this.type='text')" onmouseenter="(this.type='date')" formControlName="todate" name="todate" placeholder="ToDate *" class="form-control" />
-                
-                </div>
+              <div class="form-outline dates">
+                <input type="text" onfocus="(this.type='date')"  onmouseleave="(this.type='text')" onmouseenter="(this.type='date')"  formControlName="fromdate" placeholder="FromDate *" name="fromdate" class="form-control mainInput" />
+                &nbsp;&nbsp;
+                <input type="text" onfocus="(this.type='date')"  onmouseleave="(this.type='text')" onmouseenter="(this.type='date')" formControlName="todate" name="todate" placeholder="ToDate *" class="form-control mainInput" />
               </div>
+            </div>
+            <!-- Submit -->  
             <div class="row" >
-              <button type="submit"  class="btn btn-primary btn-block ">Submit</button>
+              <button  type="button" (click)="submit()" id="submit"  class="btn btn-primary btn-block mainInput ">Submit</button>
             </div>
           <br>
-          <h6>{{movies}}</h6>
+          <!-- Status -->
+          <b>{{movies}}</b>
          
             
         </form>

@@ -1,9 +1,36 @@
-.form-outline {
- margin: 10px;
-  
-
+.header{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
 }
-
+.form-outline {
+  font-size: 1vw;
+  margin: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.row{
+  width: 39.5vw;
+}
+.mainInput{
+  padding-right: 4vw;
+  font-size: 1vw;
+}
+.cont{
+  width: 35vw;
+  display: flex;
+}
+.inner{
+  margin-left: 2vw;
+}
+.inner-cont{
+  padding-left: 2vw;
+  text-align: left;
+  display: inline-block;
+  flex-grow: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 h4 {
   text-align: center;
   color: #fff;
@@ -20,17 +47,79 @@ h4 {
 .q {
   padding: 2vw;
   width: 40vw;
-  margin-left: 10vw;
+  margin-left: 8vw;
   text-align: center;
 }
-
+.edit1{
+  border-radius: 0.5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border: none;
+}
 .btn {
-  width: 20vw;
-  margin-top: 2vh;
-  margin-left: 9vw;
+  width: 10vw;
+  margin-top: 3vh;
+  margin-left: 14vw;
+  text-align: center;
+  padding: 0;
   /* background: linear-gradient(135deg, #ffc827 0%, #ff2727dd); */
 }
 
-.form-outline1 {
+.form-outline1 {}
+
+.tooltp {
+  padding-right: -5vw;
+  font-size: 1vw;
+  color: white;
+  max-height:20vw;
+  overflow-x: auto;
+  overflow-y: auto;
+  
+}
+.tooltp::-webkit-scrollbar {
+  width: 3px;
+}
+.tooltp::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.tooltp::-webkit-scrollbar-thumb {
+  background: rgb(205, 205, 205);
+  border-radius: 1vw;
+}
+.tooltp::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.row-flex{
+  display: flex;
+  flex-direction: row;
+
+}
+.view-all{
+  margin-right: -2vw;
+  padding-top: 0.7vh;
+  padding-left: 1vw;
+}
+.add {
+  color: black;
+  font-size: 0.8vw;
+  position: absolute;
+  z-index: 1;
+  margin-top:0.7vw;
+  margin-right: 1vw;
+}
+.delete{
+
+}
+.tick{
+  /* margin-right: -3vw; */
+}
+.cross{
+  margin-right: -3vw;
+}
+.dates{
+  display: flex;
+  flex-direction: row;
   
 }
