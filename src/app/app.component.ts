@@ -7,7 +7,7 @@ import { SocketService } from './services/socket.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+ temp55:any=0
   title = 'zipfile';
   // constructor(private socketService: SocketService ) {
   //   this.socketService.listenToServer(Connnection.change).subscribe((change)=>{
