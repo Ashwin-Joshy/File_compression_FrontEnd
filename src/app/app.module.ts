@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopupComponent } from './popup/popup.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const config: SocketIoConfig = {
   url: environment.socketUrl, // socket server url;
@@ -28,6 +29,7 @@ const config: SocketIoConfig = {
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

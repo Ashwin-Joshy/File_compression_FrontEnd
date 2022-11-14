@@ -10,6 +10,7 @@ import {
   faTrash,
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { SocketService } from 'src/app/services/socket.service';
 
@@ -43,10 +44,15 @@ export class FormComponent implements OnInit {
   fromPath: Array<string> = [];
   toPath: Array<string> = [];
   edit: Array<any> = [null, false, ''];
+
+  title = 'appBootstrap';
+   
+  closeResult: string = '';
   constructor(
     private socketService: SocketService,
     formGroup: FormBuilder,
-    library: FaIconLibrary
+    library: FaIconLibrary,
+    private modalService: NgbModal
   ) {
     library.addIcons(fa8, faCheck);
   }
@@ -58,7 +64,28 @@ export class FormComponent implements OnInit {
     });
   }
   ngOnDestroy(): void {}
-
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  } 
+    
+  /**
+   * Write code on Method
+   *
+   * @return response()
+   */
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
   //To add new path to array
   addToArray(arrayName: string, element: HTMLInputElement) {
     let value = element.value;

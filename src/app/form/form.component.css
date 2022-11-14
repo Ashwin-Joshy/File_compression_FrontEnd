@@ -2,6 +2,9 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
 }
+fa-icon{
+  cursor: pointer;
+}
 .form-outline {
   font-size: 1vw;
   margin: 10px;
@@ -16,13 +19,15 @@
   font-size: 1vw;
 }
 .cont{
+  user-select: none;
   width: 35vw;
   display: flex;
-}
+} 
 .inner{
   margin-left: 2vw;
 }
 .inner-cont{
+  user-select: none;
   padding-left: 2vw;
   text-align: left;
   display: inline-block;
@@ -102,6 +107,7 @@ h4 {
   padding-left: 1vw;
 }
 .add {
+  cursor: pointer;
   color: black;
   font-size: 0.8vw;
   position: absolute;
